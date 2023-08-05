@@ -1,0 +1,7 @@
+*.prefs
+/.metadata
+main.ts
+main_test.ts
+main_bench.ts
+*deno*
+settings.json
