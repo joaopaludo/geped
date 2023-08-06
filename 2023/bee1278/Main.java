@@ -9,12 +9,17 @@ public class Main {
 
 		Scanner teclado = new Scanner(System.in);
 
+		Boolean first = true;
 		int lin;
 
 		while (true) {
 			lin = teclado.nextInt();
+
 			if (lin == 0)
 				break;
+
+			if (!first)
+				System.out.println();
 
 			teclado.nextLine();
 
@@ -37,12 +42,14 @@ public class Main {
 			}
 
 			for (String linha : linhas) {
-				while (linha.length() < compMaiorLinha) {
-					linha = " " + linha;
+				if (linha.length() < compMaiorLinha) {
+					linha = new String(new char[compMaiorLinha]).replace('\0', ' ').substring(linha.length()) + linha;
 				}
 
 				System.out.println(linha);
 			}
+			
+			first = false;
 		}
 
 		teclado.close();
